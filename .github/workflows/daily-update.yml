@@ -1,0 +1,24 @@
+name: Notion Daily To-Do Update
+
+on:
+  schedule:
+    - cron: '0 12 * * *'  # 04:00 PST
+  workflow_dispatch:
+
+jobs:
+  run-cleanup:
+    runs-on: ubuntu-latest
+    env:
+      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: |
+          pip install --upgrade pip
+          pip install requests
+          python main.py
