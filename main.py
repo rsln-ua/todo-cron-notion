@@ -56,7 +56,7 @@ def ensure_daily_comp_db_id() -> Optional[str]:
     global DAILY_COMP_DB_ID
     if DAILY_COMP_DB_ID:
         return DAILY_COMP_DB_ID
-    DID = search_database_by_title("Daily Compilation")
+    DID = search_database_by_title("Daily Completion")
     DAILY_COMP_DB_ID = DID
     return DID
 
@@ -80,7 +80,7 @@ def log_done_item(task_text: str) -> None:
     }
     create_page_in_db(dbid, props)
 
-def log_daily_compilation(completed: int, total: int) -> None:
+def log_daily_completion(completed: int, total: int) -> None:
     dbid = ensure_daily_comp_db_id()
     if not dbid:
         return
@@ -298,13 +298,13 @@ def cleanup_todo_page(page_id: str) -> None:
             daily_completed += 1
         # uncheck all daily todos
         set_todo_checked(b["id"], False)
-    # Log to Daily Compilation (if there were any todos or the DB exists)
+    # Log to Daily Completion (if there were any todos or the DB exists)
     if daily_total > 0:
         try:
-            log_daily_compilation(daily_completed, daily_total)
+            log_daily_completion(daily_completed, daily_total)
         except Exception as e:
             # non-fatal
-            print(f"⚠️  Failed to write Daily Compilation: {e}")
+            print(f"⚠️  Failed to write Daily Completion: {e}")
 
     today_header = section_header_id(blocks, "today")
     tomorrow_header = section_header_id(blocks, "tomorrow")
