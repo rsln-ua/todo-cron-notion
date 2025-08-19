@@ -3,6 +3,7 @@
 This project automates daily resets and logging for your Notion to-do list.
 
 ## Features
+
 - Unchecks all tasks in **Daily** every night and logs them in **Daily Completion**.
 - Moves unfinished tasks from **Today** to **Backlog**.
 - Moves **Tomorrow** tasks into **Today** automatically.
