@@ -12,7 +12,7 @@ This project automates daily resets and logging for your Notion to-do list.
 ## Setup
 
 1. **Duplicate the template**  
-   Use the Notion template here: [Notion To-Do Template](https://ruslank.notion.site/To-Do-List-254df39e1845805abc25d97f90b81a67)
+   Use the Notion template here: [Notion To-Do Template](https://ruskoloma.notion.site/To-Do-List-254df39e1845805abc25d97f90b81a67)
 
 2. **Create an integration**  
    - Go to [Notion Integrations](https://www.notion.so/my-integrations).  
